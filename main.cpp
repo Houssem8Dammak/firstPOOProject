@@ -10,34 +10,52 @@ int main(){
     int tab2[6] = {10, 11, 12, 13, 14, 15};
     char* temp = new char[256];
     
-    ecole *ptr = new ecole{"aschool", "Tunis", 25, tab1};
-    ptr->view();
+    ecole *e1 = new ecole{"aschool", "Tunis", 25, tab1};
+    e1->view();
     cout << "\n-----------test operator char*-----------\n";
-    strcpy(temp,ptr->operator char *());
+    strcpy(temp,e1->operator char *());
     for (size_t i = 0 ; i < strlen(temp); i++){
         cout << temp[i];
     }
     
-    ecole *ptr1 = new ecolePrivee{"Prive Excellence","Tunis",20,tab2,"Mr.Houssem",5000.5};
+    ecole *e2 = new ecolePrivee{"Prive Excellence","Tunis",20,tab2,"Mr.Houssem",5000.5};
     cout << "\n-----------------------------------------\n";
-    ptr1->view();
+    e2->view();
     cout << "\n-----------test operator char*-----------\n";
-    strcpy(temp,ptr1->operator char *());
+    strcpy(temp,e2->operator char *());
     for (size_t i = 0 ; i < strlen(temp); i++){
         cout << temp[i];
     }
     cout << "\n-----------------------------------------\n";
     
     cout<<"\n-------------test operator +-------------\n"<<endl;
-    ecole *e3 = new ecole{*ptr+*ptr1};
+    ecole *e3 = new ecole{*e1+*e2};
 
     ++(*e3);
     (*e3)++;
     cout << "-----------------------------------------";
     e3->view();
+    cout << "\n-----------------------------------------\n";
     
-    delete ptr;
-    delete ptr1;
+    try{
+        ecole *e4 = new ecole{"aschool", "Tunis", -25, tab1};
+    }
+    catch(const negativeProfessorCount &ex){
+        cout << ex.what() << endl;
+    }
+
+    cout << "\n-----------------------------------------\n";
+    
+    try{
+        int tab3[6] = {20, 25, 30, -22, 18, 15};
+        ecole *e5 = new ecole{"aschool", "Tunis", 25, tab3};
+    }catch(const negativeClasse &ex){
+        cout << ex.what() << endl;
+    }
+
+
+    delete e1;
+    delete e2;
     delete e3;
     delete [] temp;
 

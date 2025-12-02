@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <cstring>
+#include "negativeClasse.h"
+#include "negativeProfessorCount.h"
 
 using namespace std;
 

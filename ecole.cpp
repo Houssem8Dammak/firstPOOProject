@@ -1,5 +1,8 @@
 #include "ecole.h"
+
+
 using namespace std;
+
 ecole::ecole(
     const char *nom = nullptr,
     const char *adresse = nullptr,
@@ -16,13 +19,18 @@ ecole::ecole(
         this->adresse = new char[strlen(adresse) + 1];
         strcpy(this->adresse, adresse);
     }
-    if (ne > 0){
+    if(ne < 0){
+        throw negativeProfessorCount{};
+    }else{
         this->ne = ne;
     }
 
     this->eleve = new int[6];
     if (eleve){
         for (int i = 0; i < 6; i++){
+            if (eleve[i] < 0){
+                throw negativeClasse{};
+            }
             this->eleve[i] = eleve[i];
         }
     }
