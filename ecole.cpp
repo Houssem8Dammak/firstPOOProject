@@ -82,17 +82,20 @@ int ecole::get_eleve_niveau(int niveau)const{
         return 0;
 }
 
+//pre-increment
 ecole &ecole::operator++(){
     this->ne++;
     return *this;
 }
 
-ecole ecole::operator++(int asba){
+//post-increment
+ecole ecole::operator++(int){
     ecole temp {*this};
     this->ne +=1;
     return temp;
 }
 
+//fusion operator (creates a new ecole)
 ecole ecole::operator+(ecole &fusionEcole){
     char *nameBuffer = new char[100];
     cout << "tapez le nom de la nouveau ecole: ";
@@ -122,6 +125,7 @@ ecole ecole::operator+(ecole &fusionEcole){
     return newEcole;
 }
 
+//prints the class attributes into a single string
 ecole::operator char*(){
     char* p = new char[256];
     sprintf(p,"%s:%s:%d:",nom,adresse,ne);
@@ -140,6 +144,7 @@ ecole::operator char*(){
 
 }
 
+//displays the class attributes
 void ecole::view() const{
     cout << endl;
     cout << "le nom de cet ecole est: " << this->nom << endl;
