@@ -15,7 +15,7 @@ class ecole{
         int ne;
         int *eleve;
     public:
-        ecole(const char* nom,const char* adresse,int ne,int* eleve);
+        ecole(const char *nom = nullptr, const char *adresse = nullptr, int ne = 0, int *eleve = nullptr);
         ecole(const ecole& e);
         virtual ~ecole();
         char* get_nom()const;

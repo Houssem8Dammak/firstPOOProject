@@ -2,12 +2,8 @@
 
 using namespace std;
 
-ecole::ecole(
-    const char *nom = nullptr,
-    const char *adresse = nullptr,
-    int ne = 0,
-    int *eleve = nullptr
-): nom{nullptr}, adresse{nullptr}, ne{0}, eleve{nullptr}
+ecole::ecole(const char *nom ,const char *adresse ,int ne ,int *eleve)
+: nom{nullptr}, adresse{nullptr}, ne{0}, eleve{nullptr}
 {
     if (nom){
         this->nom = new char[strlen(nom) + 1];

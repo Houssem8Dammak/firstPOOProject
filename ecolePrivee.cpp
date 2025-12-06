@@ -1,14 +1,8 @@
 #include "ecolePrivee.h"
 #include <cstring>
 
-ecolePrivee::ecolePrivee(
-    const char* nom = nullptr,
-    const char* adresse = nullptr,
-    int ne = 0,
-    int* eleve = nullptr,
-    const char *gerant = nullptr,
-    float capital = 0.0
-): ecole(nom,adresse,ne,eleve), gerant{nullptr}, capital{0.0}
+ecolePrivee::ecolePrivee(const char* nom ,const char* adresse ,int ne,int* eleve,const char *gerant, float capital)
+: ecole(nom,adresse,ne,eleve), gerant{nullptr}, capital{0.0}
 {
     if(gerant){
         this->gerant = new char[std::strlen(gerant)+1];
