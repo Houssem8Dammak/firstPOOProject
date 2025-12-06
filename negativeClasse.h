@@ -8,7 +8,7 @@ class negativeClasse: public std::exception{
     negativeClasse() noexcept = default;
     ~negativeClasse() = default;
     virtual const char* what() const noexcept{
-        return "il \' y a un niveau qui a un nombre neagtif des eleves. ";
+        return "il \' y a un niveau qui a un nombre negatif des eleves. ";
     }
 };
 

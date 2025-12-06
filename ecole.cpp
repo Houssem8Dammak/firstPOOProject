@@ -1,6 +1,5 @@
 #include "ecole.h"
 
-
 using namespace std;
 
 ecole::ecole(
@@ -19,14 +18,15 @@ ecole::ecole(
         this->adresse = new char[strlen(adresse) + 1];
         strcpy(this->adresse, adresse);
     }
+
     if(ne < 0){
         throw negativeProfessorCount{};
     }else{
         this->ne = ne;
     }
 
-    this->eleve = new int[6];
     if (eleve){
+        this->eleve = new int[6];
         for (int i = 0; i < 6; i++){
             if (eleve[i] < 0){
                 throw negativeClasse{};
@@ -35,6 +35,7 @@ ecole::ecole(
         }
     }
 }
+
 ecole::ecole(const ecole &source): nom{nullptr}, adresse{nullptr}, ne{0}, eleve{nullptr}{
     if (source.nom){
         this->nom = new char[strlen(source.nom) + 1];
@@ -49,9 +50,9 @@ ecole::ecole(const ecole &source): nom{nullptr}, adresse{nullptr}, ne{0}, eleve{
     if (source.ne > 0){
         this->ne = source.ne;
     }
-
-    this->eleve = new int[6];
+    
     if (source.eleve){
+        this->eleve = new int[6];
         for (int i = 0; i < 6; i++){
             this->eleve[i] = source.eleve[i];
         }

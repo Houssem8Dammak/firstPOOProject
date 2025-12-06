@@ -34,19 +34,9 @@ ecolePrivee::~ecolePrivee(){
 
 ecolePrivee::operator char*(){
     char* p = new char[256];
-    sprintf(p,"%s:%s:%d:",nom,adresse,ne);
+    p = ecole::operator char *();
 
-    char *temp = new char[20];
-    for (int i = 0 ; i < 5 ; i++){
-        sprintf(temp,"%d/",this->eleve[i]);
-        p = strcat(p,temp);
-    }
-    sprintf(temp,"%d",this->eleve[5]);
-    p = strcat(p,temp);
-
-    delete [] temp;
-
-    sprintf(p,"%s:%s:%f",p,gerant,capital);
+    sprintf(p,"%s:%s:%.2f",p,gerant,capital);
 
     return p;
 }
